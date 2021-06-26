@@ -1,2 +1,5 @@
 # Javascript-Quiz
-This is a JavaScript Quiz website which uses Quiz-Api to fetch the questions. 
+This is a JavaScript Quiz website which uses [QuizApi](https://quizapi.io/) to fetch the questions. 
+You can visit it [HERE](https://dominikgorczyca.github.io/Javascript-Quiz/)
+
+
