@@ -154,7 +154,7 @@ function nextPageListener() {
                 })
             }   
 
-            cards[i + 1].classList.remove("show-up");
+            cards[i + 1].classList.remove("hidden-card");
             cards[i].classList.add("fade");
             
             
@@ -211,23 +211,9 @@ function createFooter() {
         scoreComment = "Ouch, Maybe next time.";
     }
 
-    cards[11].innerHTML = `<h2 class="score">You scored ${pointsGained}/10!</h2>
-    <p><strong>${scoreComment} This Quiz was done for my dev.to <a target="_blank" href="https://dev.to/settings" target="_blank">blog post</a>, if you liked or disliked it I encourage you to leave your feedback in the comments.</strong></p>
-    <button class="next" id="refresh">Press F5 to Try Again</button>
-    <footer>
-    <div class="blog">
-        <p class="footer-title">Blog</p>
-        <div class="links">
-            <a class="link" target="_blank" href="https://dev.to/dgx32123"><img src="dev.png" alt="A logo of dev.to website"></a>
-        </div>
-    </div>
-    <div class="inspiration">
-        <p class="footer-title">Inspiration</p>
-        <div class="links"> 
-            <a class="link" target="_blank" href="https://www.typeform.com/templates/t/digital-marketing-quiz/"><img src="typeform.png" alt="A logo of typeform.com website"></a>
-        </div>
-    </div>
-    </footer>`;
+    cards[11].innerHTML += `<h2>You scored ${pointsGained}/10!</h2>
+    <p>${scoreComment} This Quiz was done for my dev.to <a target="_blank" href="https://dev.to/settings" target="_blank">blog post</a>, if you liked or disliked it I encourage you to leave your feedback in the comments.</p>
+    <button class="next" id="refresh">Press F5 to Try Again</button>`;
 
     document.getElementById("refresh").addEventListener("click", () => {
         location.reload();
