@@ -74,7 +74,7 @@ body {
   width: 100%;
 }
 
-.select {
+#select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -753,13 +753,13 @@ footer > div {
 }
 
 .link:hover {
-  -webkit-box-shadow: 0px 0px 4px 1px var(--button-clicked);
-          box-shadow: 0px 0px 4px 1px var(--button-clicked);
+  -webkit-filter: drop-shadow(0px 0px 6px var(--button-clicked));
+          filter: drop-shadow(0px 0px 6px var(--button-clicked));
 }
 
 .link:focus {
-  -webkit-box-shadow: 0px 0px 4px 4px var(--button-clicked);
-          box-shadow: 0px 0px 4px 4px var(--button-clicked);
+  -webkit-filter: drop-shadow(0px 0px 6px var(--button-clicked));
+          filter: drop-shadow(0px 0px 6px var(--button-clicked));
 }
 
 img {
