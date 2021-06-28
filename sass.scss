@@ -17,7 +17,6 @@
                 Layout  
 -----------------------------------------*/
 html {
-    height: 100vh;
     overflow: hidden;
     background-color: var(--main-color);
     color: var(--font-color);
@@ -34,7 +33,8 @@ body {
     position: relative;
     width: 100%;
     flex-direction: column;
-    height: 1200vh;
+    margin: auto;
+    height: 100vh;
 }
 
 @keyframes fade {
@@ -46,12 +46,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;    
-    position: relative;
+    position: absolute;
     box-sizing: border-box;
     padding: 2em 2em;
     margin: auto;
     height: 100vh;
     width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: top 0.5s, bottom 0.5s;
 }
 
 #select {
@@ -63,16 +68,15 @@ body {
     animation: 0.5s fade forwards;
 }
 
-@-moz-document url-prefix() {
-    .fade {
-        animation: 0.1s fade forwards;
-    }
-}  
+.show-up {
+    top: 200vh;
+}
 
 
 @keyframes fade {
     100% {
         opacity: 0;
+        top: -200%;
     }
 }
 
@@ -193,6 +197,7 @@ a {
 
 button,
 a {
+    cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 }
 

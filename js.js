@@ -134,7 +134,7 @@ function optionListeners() {
 }
 
 function nextPageListener() {
-    let scrollTimeout;
+    // let scrollTimeout;
     for (let [i, nextButton] of Object.entries(nextButtons)) {
         i = +i;
         if (i === 11) {
@@ -142,25 +142,21 @@ function nextPageListener() {
         }   
 
         nextButton.addEventListener("click", (e) => {
-            if(i < 9) {
-                addEventListener("scroll", () => {  
-                    clearTimeout(scrollTimeout); //timeout will activate only after document no longer detects more scroll events.
-                    scrollTimeout = setTimeout(() => {
-                        counters[i + 1].classList.add(countdownType);
-                        counters[i + 1].innerHTML = "";
-                        unblockTabIndex(focusableArrays[i + 1]);
-                    }, 50);
-                })
-            }
-            
+
             
             blockTabIndex(focusableArrays[i]);
 
-            cards[i + 1].scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+            if(i < 9) {
+                cards[i].addEventListener("animationend", () => {
+                    counters[i + 1].classList.add(countdownType);
+                    counters[i + 1].innerHTML = "";
+                    unblockTabIndex(focusableArrays[i + 1]);
+                })
+            }   
+
+            cards[i + 1].classList.remove("show-up");
             cards[i].classList.add("fade");
+            
             
         })
     }
@@ -217,7 +213,21 @@ function createFooter() {
 
     cards[11].innerHTML = `<h2 class="score">You scored ${pointsGained}/10!</h2>
     <p><strong>${scoreComment} This Quiz was done for my dev.to <a target="_blank" href="https://dev.to/settings" target="_blank">blog post</a>, if you liked or disliked it I encourage you to leave your feedback in the comments.</strong></p>
-    <button class="next" id="refresh">Press F5 to Try Again</button>`;
+    <button class="next" id="refresh">Press F5 to Try Again</button>
+    <footer>
+    <div class="blog">
+        <p class="footer-title">Blog</p>
+        <div class="links">
+            <a class="link" target="_blank" href="https://dev.to/dgx32123"><img src="dev.png" alt="A logo of dev.to website"></a>
+        </div>
+    </div>
+    <div class="inspiration">
+        <p class="footer-title">Inspiration</p>
+        <div class="links"> 
+            <a class="link" target="_blank" href="https://www.typeform.com/templates/t/digital-marketing-quiz/"><img src="typeform.png" alt="A logo of typeform.com website"></a>
+        </div>
+    </div>
+    </footer>`;
 
     document.getElementById("refresh").addEventListener("click", () => {
         location.reload();

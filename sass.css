@@ -17,7 +17,6 @@
                 Layout  
 -----------------------------------------*/
 html {
-  height: 100vh;
   overflow: hidden;
   background-color: var(--main-color);
   color: var(--font-color);
@@ -39,7 +38,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 1200vh;
+  margin: auto;
+  height: 100vh;
 }
 
 @-webkit-keyframes fade {
@@ -65,13 +65,19 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: relative;
+  position: absolute;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 2em 2em;
   margin: auto;
   height: 100vh;
   width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: top 0.5s, bottom 0.5s;
+  transition: top 0.5s, bottom 0.5s;
 }
 
 #select {
@@ -89,15 +95,14 @@ body {
           animation: 0.5s fade forwards;
 }
 
-@-moz-document url-prefix() {
-  .fade {
-    animation: 0.1s fade forwards;
-  }
+.show-up {
+  top: 200vh;
 }
 
 @keyframes fade {
   100% {
     opacity: 0;
+    top: -200%;
   }
 }
 
@@ -232,6 +237,7 @@ a:active {
 
 button,
 a {
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 
