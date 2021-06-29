@@ -21,11 +21,10 @@ async function createQuestions() {
     let response = await fetch("https://quizapi.io/api/v1/questions?apiKey=qt9GpHOhGOY91eTnWxb4CBrGUOrq807bGmipXFqh&tags=javascript&limit=10&multiple_correct_answers=false");
     let quizApi = await response.json();
 
-
-    for (let [i, quizContent] of Object.entries(quizApi)) {
-        getCorrectAnswer(quizContent);
-        quizContent.answers = randomizeAnswers(quizContent.answers);
-        insertQuestion(quizContent, i);
+    for (let [i, question] of Object.entries(quizApi)) {
+        getCorrectAnswer(question);
+        question.answers = randomizeAnswers(question.answers);
+        insertQuestion(question, i);
     }
     
     getTabIndexElements();
@@ -37,12 +36,12 @@ async function createQuestions() {
     document.getElementById("select").classList.remove("hidden");
 }
 
-function getCorrectAnswer(quizContent) {
-    //index name of question.correct_answers with value true points us to the content of correct answer.
-    let correctIndex = Object.entries(quizContent.correct_answers).find(answer => answer[1] === "true")[0];
+function getCorrectAnswer(question) {
+    //index name of question.correct_answers with value "true" points us to the content of the correct answer.
+    let correctIndex = Object.entries(question.correct_answers).find(answer => answer[1] === "true")[0];
     //But first we need to get rid of additional last word 
     correctIndex = correctIndex.split("_").slice(0, 2).join("_");
-    correctAnswers.push(quizContent.answers[correctIndex]);
+    correctAnswers.push(question.answers[correctIndex]);
 }
 
 function randomizeAnswers(answers) {
@@ -92,7 +91,6 @@ function escapeHtmlCharacters(htmlText) {
 function getTabIndexElements () { 
     for(let quizElement of quiz.children) {
         focusableArrays.push(quizElement.querySelectorAll("button, a"));
-        // element.;
     }
     for(let [i, focusableArray] of Object.entries(focusableArrays)) {
         if (i != 0) {
@@ -109,7 +107,7 @@ function blockTabIndex(array) {
 
 function unblockTabIndex(array) {
     for(let focusableElement of array) {
-        focusableElement.tabIndex = "1";
+        focusableElement.tabIndex = "0";
     }
 }
 
@@ -140,13 +138,11 @@ function nextPageListener() {
         if (i === 11) {
             return;
         }   
-
         nextButton.addEventListener("click", (e) => {
-
             
             blockTabIndex(focusableArrays[i]);
 
-            if(i < 9) {
+            if(i != 10) {
                 cards[i].addEventListener("animationend", () => {
                     counters[i + 1].classList.add(countdownType);
                     counters[i + 1].innerHTML = "";
@@ -156,8 +152,6 @@ function nextPageListener() {
 
             cards[i + 1].classList.remove("hidden-card");
             cards[i].classList.add("fade");
-            
-            
         })
     }
 }

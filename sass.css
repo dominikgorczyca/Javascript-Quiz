@@ -298,6 +298,9 @@ a {
         Buttons
 -----------------------------------------*/
 .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
   word-break: break-all;
   max-width: 100%;
@@ -517,7 +520,6 @@ a {
   position: relative;
   width: 1.5em;
   height: 1em;
-  text-align: center;
   font-size: 3.5rem;
   color: var(--wrong-color);
 }
@@ -525,11 +527,6 @@ a {
 .counter::before, .counter::after {
   position: absolute;
   content: "";
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
 }
 
 .counter::after {
@@ -727,9 +724,7 @@ a {
   font-size: 2rem;
 }
 
-.links {
-  width: 100%;
-  max-width: 5em;
+.link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -737,11 +732,7 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.link {
   padding: 0;
-  margin: 0;
 }
 
 .link:hover {

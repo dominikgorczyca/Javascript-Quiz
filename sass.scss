@@ -275,6 +275,7 @@ a {
 -----------------------------------------*/
 
 .option {
+    display: flex;
     position: relative;
     word-break: break-all;
     max-width: 100%;
@@ -389,7 +390,6 @@ a {
 
     &:active {
         background-color: var(--contrast-color);
-        // color: var(--analogous-color);
     }
 }
 
@@ -485,7 +485,6 @@ a {
     position: relative;
     width: 1.5em;
     height: 1em;
-    text-align: center;
     font-size: 3.5rem;
     color: var(--wrong-color);
 
@@ -493,12 +492,6 @@ a {
     &::after {
         position: absolute;
         content: "";
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-
     }
 
     &::after {
@@ -646,25 +639,18 @@ a {
     font-size: 2rem;
 }
 
-.links {
-    width: 100%;
-    max-width: 5em;
+.link {
     display: flex;
     margin: 0.5em auto 0;
     justify-content: center;
-}
-
-.link {
-    &:hover {
+    &:hover {   
         filter: drop-shadow(0px 0px 6px var(--button-clicked));
     }
 
     &:focus {
         filter: drop-shadow(0px 0px 6px var(--button-clicked));
     }
-
     padding: 0;
-    margin: 0;
 }
 
 img {
@@ -674,7 +660,6 @@ img {
 
 @media (min-width: 900px) and (min-height: 600px),
 (min-width: 600px) and (min-height: 900px) {
-
     .footer-title {
         font-size: 3rem
     }
@@ -685,7 +670,6 @@ img {
 }
 
 @media (max-height: 400px) {
-
     .footer-title {
         font-size: 1.6rem;
     }
