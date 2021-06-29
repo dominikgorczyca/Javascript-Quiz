@@ -89,8 +89,7 @@ header {
     display: inline-flex;
     flex-direction: column;
     width: 100%;
-    gap: 1.6em;
-    margin: 1.6em 0;
+    margin: 0.8em 0;
 }
 
 .progress {
@@ -133,17 +132,9 @@ footer {
     header {
         margin-bottom: 5em;
     }
-
-    .options {
-        gap: 2em;
-    }
 }
 
 @media (max-height: 400px) {
-    .options {
-        margin: 1em 0;
-        gap: 1em;
-    }
 
     .progress {
         display: flex;
@@ -279,6 +270,7 @@ a {
     position: relative;
     word-break: break-all;
     max-width: 100%;
+    margin: 0.4em 0;
     text-align: left;
     padding-left: 3.25em;
     border: 2px solid var(--contrast-lighter);
@@ -403,6 +395,7 @@ a {
 (min-width: 600px) and (min-height: 900px) {
     .option {
         border: 3px solid var(--contrast-lighter);
+        margin: 0.4em 0;
 
         &::before {
             width: 3px;
@@ -440,7 +433,7 @@ a {
 @media (max-height: 400px) {
     .option {
         border: 2px solid var(--contrast-lighter);
-        ;
+        margin: 0.4em 0;
 
         &::before {
             width: 2px;
@@ -612,8 +605,6 @@ a {
     100% {
         font-family: "Font Awesome 5 Free";
         content: "\f00d";
-        // content: "\f00c"; right
-        // color: var(--correct-color);
     }
 }
 
