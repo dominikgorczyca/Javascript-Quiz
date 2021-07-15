@@ -206,7 +206,7 @@ function createFooter() {
     }
 
     cards[11].innerHTML += `<h2>You scored ${pointsGained}/10!</h2>
-    <p>${scoreComment} This Quiz was done for my dev.to <a target="_blank" href="https://dev.to/settings" target="_blank">blog post</a>, if you liked or disliked it I encourage you to leave your feedback in the comments.</p>
+    <p>${scoreComment} This Quiz was done for my dev.to <a target="_blank" href="https://dev.to/dgx32123/working-with-apis-39ad" target="_blank">blog post</a>, if you liked or disliked it I encourage you to leave your feedback in the comments.</p>
     <button class="next" id="refresh">Press F5 to Try Again</button>`;
 
     document.getElementById("refresh").addEventListener("click", () => {
